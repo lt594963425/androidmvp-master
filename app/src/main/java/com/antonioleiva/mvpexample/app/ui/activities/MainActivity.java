@@ -37,6 +37,9 @@ import com.antonioleiva.mvpexample.app.mvp.view.MainView;
 
 import java.util.List;
 
+/**
+ * @author Administrator
+ */
 public class MainActivity extends BaseActivity<MainPresenterImpl,MainView> implements MainView, AdapterView.OnItemClickListener {
 
     private ListView listView;

@@ -34,6 +34,7 @@ import com.antonioleiva.mvpexample.app.mvp.view.LoginView;
  * UI层
  * 只处理生命周期的事情
  * 1.多个Activity要重复实现绑定和解绑的动作  抽象activity类
+ * @author Administrator
  */
 public class LoginActivity extends BaseActivity<LoginPresenterImpl, LoginView> implements LoginView, View.OnClickListener {
     private ProgressBar progressBar;
@@ -44,19 +45,23 @@ public class LoginActivity extends BaseActivity<LoginPresenterImpl, LoginView> i
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        progressBar = (ProgressBar) findViewById(R.id.progress);
-        username = (EditText) findViewById(R.id.username);
-        password = (EditText) findViewById(R.id.password);
+        progressBar = findViewById(R.id.progress);
+        username =  findViewById(R.id.username);
+        password =  findViewById(R.id.password);
         findViewById(R.id.button).setOnClickListener(this);
+
     }
 
     @Override
     public LoginView createView() {
         return this;
     }
-
+    /**
+     *   持有presenter的引用
+     */
     @Override
     public LoginPresenterImpl createPresenter() {
+
         return new LoginPresenterImpl();
     }
 
